@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Job Listings</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e6e6fa;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #8fbc8f;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f0f8ff;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        a {
+            color: #db7093;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Job Listings</h2>
+    {% if listings %}
+    <ul>
+        {% for job in listings %}
+        <li>
+            <a href="{{ job.link }}">{{ job.title }}</a><br>
+            <span>Company: {{ job.company }}</span><br>
+            <span>Location: {{ job.location }}</span><br>
+            <span>Listed on: {{ job.list_date }}</span><br>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No job listings found. Try adjusting your search.</p>
+    {% endif %}
+</body>
+
+</html>
